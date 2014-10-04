@@ -7,8 +7,6 @@
 #include <argp.h>
 #include <config.h>
 
-#define DEBUG 1
-
 /**
 *
 */
@@ -47,6 +45,7 @@ struct arguments {
 */
 static struct argp_option options[] = {
 	{"verbose", 'v', 0, 0, "Produce verbose output."},
+	{"debug", 'd', 0, 0, "Turn on debuging mode"},
 	{0}
 };
 

@@ -4,6 +4,7 @@
 #include <libgen.h>
 #include <options.h>
 #include <actions.h>
+#include <debug.h>
 
 /**
 * Package name and version.
@@ -28,9 +29,14 @@ int main(int argc, char** argv) {
 	/* Do we have any actions */
 	if (arguments.args.size() == 0) {
 		argp_help(&argp, stdout, ARGP_HELP_SEE | ARGP_HELP_EXIT_ERR, basename(argv[0]));
+
+		/* Manual exit needed? */
+		exit(1);
 	}
 
 	const char* action = arguments.args.at(0).c_str();
+	arguments.args.erase(arguments.args.begin());
+
 	/* Search for action in table */
 	for(int i = 0; i < number_of_actions; i++) {
 		if (strcmp(actions[i].name, action) == 0) {

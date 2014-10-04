@@ -1,4 +1,7 @@
+#include <cstdio>
+#include <cstring>
 #include <actions.h>
+#include <debug.h>
 
 /**
 *
@@ -12,6 +15,10 @@ void arguments_pre(struct arguments* arguments) {
 */
 void arguments_post(struct arguments* arguments) {
 
+	/* Replace */
+	if (arguments->options["debug"] == "TRUE") {
+		DEBUG_MODE = true;
+	} 
 }
 
 /**
@@ -24,6 +31,9 @@ int parse_args(int key, char* arg, struct argp_state* state) {
 	switch(key) {
 		case 'v':
 			arguments->options["verbose"] = "TRUE";
+			break;
+		case 'd':
+			arguments->options["debug"] = "TRUE";
 			break;
 		case ARGP_KEY_ARG:
 			arguments->args.push_back(arg);

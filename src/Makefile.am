@@ -1,3 +1,3 @@
-AM_CFLAGS = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include
 bin_PROGRAMS = pm
-pm_SOURCES = pm.c
+pm_SOURCES = pm.cpp

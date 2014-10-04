@@ -4,11 +4,12 @@
 AC_PREREQ([2.69])
 AC_INIT([project-manager], [0.0.1], [mcdasethan2@gmail.com])
 AM_INIT_AUTOMAKE([foreign -Wall])
-AC_CONFIG_SRCDIR([src/pm.c])
+AC_CONFIG_SRCDIR([src/pm.cpp])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_CXX
 
 # Checks for libraries.
 

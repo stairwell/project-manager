@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([project-manager], [0.0.1], [mcdasethan2@gmail.com])
+AC_INIT([project-manager], [0.0.1], [stairwellsoftware@gmail.com])
 AM_INIT_AUTOMAKE([foreign -Wall])
 AC_CONFIG_SRCDIR([src/pm.cpp])
 AC_CONFIG_HEADERS([config.h])

@@ -1,5 +1,7 @@
 #include <cstdio>
+#include <cstdlib>
 #include <options.h>
+#include <libgen.h>
 
 /**
 *
@@ -46,7 +48,13 @@ int main(int argc, char** argv) {
 	struct arguments arguments;
 	arguments_pre(&arguments);
 
-	int ret_code = argp_parse(&argp, argc, argv, 0, 0, &arguments);
+	error_t ret_code = argp_parse(&argp, argc, argv, 0, 0, &arguments);
 	
+	if (arguments.args.size() == 0) {
+		argp_help(&argp, stdout, ARGP_HELP_SEE | ARGP_HELP_EXIT_ERR, basename(argv[0]));
+	}
+
+
+
 	return 0;
 }

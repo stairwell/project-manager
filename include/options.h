@@ -2,7 +2,7 @@
 #define OPTIONS_H
 
 #include <iostream>
-#include <list>
+#include <vector>
 #include <map>
 #include <argp.h>
 #include <config.h>
@@ -36,7 +36,7 @@ const char doc[] = "A project manager.";
 *
 */
 struct arguments {
-	std::list<std::string> args;
+	std::vector<std::string> args;
 	std::map<std::string, std::string> options;
 };
 
@@ -46,6 +46,14 @@ struct arguments {
 struct argp_option options[] = {
 	{"verbose", 'v', 0, 0, "Produce verbose output."},
 	{0}
+};
+
+/**
+*
+*/
+struct options {
+	const char* name;
+	int (*action)(arguments);
 };
 
 /**

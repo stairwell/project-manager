@@ -7,6 +7,8 @@
 #include <argp.h>
 #include <config.h>
 
+#define DEBUG 1
+
 /**
 *
 */
@@ -25,12 +27,12 @@ int parse_args(int key, char* arg, struct argp_state* state);
 /**
 *
 */
-const char args_doc[] = "[ACTION] [ARGS]";
+static const char args_doc[] = "[ACTION] [ARGS]";
 
 /**
 *
 */
-const char doc[] = "A project manager.";
+static const char doc[] = "A project manager.";
 
 /**
 *
@@ -43,7 +45,7 @@ struct arguments {
 /**
 *
 */
-struct argp_option options[] = {
+static struct argp_option options[] = {
 	{"verbose", 'v', 0, 0, "Produce verbose output."},
 	{0}
 };
@@ -51,15 +53,7 @@ struct argp_option options[] = {
 /**
 *
 */
-struct options {
-	const char* name;
-	int (*action)(arguments);
-};
-
-/**
-*
-*/
-struct argp argp = {
+static struct argp argp = {
 	/* */
 	options,
 	/* */
@@ -69,16 +63,5 @@ struct argp argp = {
 	/* */
 	doc
 };
-
-/**
-* Package name and version.
-* Is there a better way to do this?
-*/
-const char* argp_program_version = PACKAGE_NAME "-" PACKAGE_VERSION;
-
-/**
-*
-*/
-const char* argp_program_bug_address = "<" PACKAGE_BUGREPORT ">";
 
 #endif

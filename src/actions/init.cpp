@@ -12,10 +12,14 @@ int init(struct arguments* args) {
 		exit(1);
 	}
 
+	/* Create project directory */
 	if (path_exists(path + "/.projectmanager", IS_DIRECTORY)) {
 		fprintf(stderr, "Project already exists, exiting.\n");
 		exit(1);
 	}
-
 	
+	if (!mkdir_recursive(path + "/.projectmanager")) {
+
+	}
+
 }

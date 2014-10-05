@@ -1,15 +1,27 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
-/*
-* Debug print function.
-*/
-int debug_printf(const char* format, ...);
+#include <cstdio>
 
-/*
-* Debug print function with a new line.
+/**
+*
 */
-int debug_printl(const char* format, ...);
+#define debug_printf(fmt, ...) pm_fprintf(stdout, fmt, __VA_ARGS__)
+
+/**
+*
+*/
+#define debug_printl(fmt, ...) pm_fprintl(stdout, fmt, __VA_ARGS__)
+
+/**
+*
+*/
+int pm_fprintf(FILE* stream, const char* format, ...);
+
+/**
+*
+*/
+int pm_fprintl(FILE* stream, const char* format, ...);
 
 /*
 * Are we in debugging mode?

@@ -91,7 +91,8 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_pm_OBJECTS = pm.$(OBJEXT) actions.$(OBJEXT) settings.$(OBJEXT) \
-	args.$(OBJEXT) utils.$(OBJEXT) debug.$(OBJEXT) init.$(OBJEXT)
+	args.$(OBJEXT) utils.$(OBJEXT) debug.$(OBJEXT) \
+	manifest.$(OBJEXT) init.$(OBJEXT)
 pm_OBJECTS = $(am_pm_OBJECTS)
 pm_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -243,7 +244,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include
-pm_SOURCES = pm.cpp actions.cpp settings.cpp args.cpp utils.cpp debug.cpp actions/init.cpp
+pm_SOURCES = pm.cpp actions.cpp settings.cpp args.cpp utils.cpp debug.cpp manifest.cpp actions/init.cpp
+AM_LDFLAGS = -lconfig++ -lconfig
 all: all-am
 
 .SUFFIXES:
@@ -335,6 +337,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/args.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/debug.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/init.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/manifest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/settings.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/utils.Po@am__quote@

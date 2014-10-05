@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
+#include <libconfig.h++>
 #include <actions.h>
+#include <manifest.h>
 #include <utils.h>
 
 int init(struct arguments* args) {
@@ -19,7 +21,12 @@ int init(struct arguments* args) {
 	}
 	
 	if (!mkdir_recursive(path + "/.projectmanager")) {
-
+		fprintf(stderr, "Failed to create project, exiting.\n");
+		exit(1);
 	}
 
+	if (!pm::manifest::create_new_manifest(path + "/.projectmanager/manifest")) {
+		fprintf(stderr, "Failed to create project manifest, exiting.\n");
+		exit(1);
+	}
 }

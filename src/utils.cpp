@@ -37,10 +37,10 @@ bool __mkdir_recursive(const char* path, mode_t type = 0775) {
 		}
 
 		if ((ret = mkdir(dir.c_str(), type)) && errno != EEXIST) {
-			return ret;
+			return ret == 0;
 		}
 	}
-	return ret;
+	return ret == 0;
 }
 
 

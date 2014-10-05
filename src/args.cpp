@@ -8,6 +8,8 @@
 */
 void arguments_pre(struct arguments* arguments) {
 	arguments->options["verbose"] = "FALSE";
+
+	arguments->options["debug"] = "FALSE";
 }
 
 /**

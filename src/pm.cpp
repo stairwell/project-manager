@@ -7,17 +7,6 @@
 #include <debug.h>
 
 /**
-* Package name and version.
-*
-*/
-const char* argp_program_version = PACKAGE_NAME "-" PACKAGE_VERSION;
-
-/**
-*
-*/
-const char* argp_program_bug_address = "<" PACKAGE_BUGREPORT ">";
-
-/**
 *
 */
 int main(int argc, char** argv) {
